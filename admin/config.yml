@@ -1,0 +1,38 @@
+backend:
+  name: github
+  repo: DEIN_GITHUB_USERNAME/DEIN_REPOSITORY_NAME # Z.B. my-org/sv-achternmeer
+  branch: main # Oder dein Standard-Branch (z.B. master)
+
+media_folder: "assets/uploads" # Wo Bilder gespeichert werden
+public_folder: "/assets/uploads" # Pfad zu den Bildern im HTML
+
+collections:
+  # 1. Sammlung: Aktuelles / News
+  - name: "news"
+    label: "Aktuelles & News"
+    folder: "content/news"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    format: "json"
+    fields:
+      - { label: "ID", name: "id", widget: "string" }
+      - { label: "Titel", name: "title", widget: "string" }
+      - { label: "Datum", name: "date", widget: "string" }
+      - { label: "Kategorie", name: "category", widget: "select", options: ["Spielbericht", "Mitteilung", "Veranstaltung"] }
+      - { label: "Vorschaubild", name: "image", widget: "image" }
+      - { label: "Kurzbeschreibung", name: "excerpt", widget: "text" }
+      - { label: "Inhalt (Absätze)", name: "body", widget: "list", field: { label: "Absatz", name: "paragraph", widget: "string" } }
+
+  # 2. Sammlung: Mannschaften
+  - name: "teams"
+    label: "Mannschaften"
+    folder: "content/teams"
+    create: true
+    format: "json"
+    fields:
+      - { label: "ID", name: "id", widget: "string" }
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Bild", name: "image", widget: "image" }
+      - { label: "Trainingszeiten", name: "times", widget: "string" }
+      - { label: "Trainer/in", name: "coach", widget: "string" }
+      - { label: "Kontakt", name: "contact", widget: "string" }
