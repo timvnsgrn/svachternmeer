@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SV Achternmeer e.V. – Sportverein in Wardenburg</title>
+<meta name="description" content="SV Achternmeer e.V. – Fußball, Gymnastik, Jazzdance und Kindersport in Wardenburg. Werde jetzt Mitglied!">
+
+<!-- ==========================================================
+     PUBLII-HINWEIS: Dieses Dokument ist bewusst in klar
+     abgegrenzte, kommentierte <section>-Blöcke gegliedert.
+     Jeder Block kann 1:1 als Publii-"Post"/"Page"-Template
+     oder als statischer Textblock übernommen werden.
+     Bilder sind mit Platzhaltern (placehold.co) markiert –
+     bitte durch echte Vereinsfotos ersetzen (Alt-Texte bleiben).
+     ========================================================== -->
+
+<!-- Google Fonts: Inter (Body + Headlines) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- Tailwind CSS via CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        },
+        colors: {
+          'sva-blue': {
+            DEFAULT: '#1E3A8A',
+            50:  '#EEF2FB',
+            100: '#DCE5F6',
+            200: '#B4C6EA',
+            300: '#8CA7DE',
+            400: '#4A6BC4',
+            500: '#1E3A8A',
+            600: '#1A3277',
+            700: '#152864',
+            800: '#101E4B',
+            900: '#0B1533',
+          },
+          'sva-accent': '#2E5BFF',
+          'sva-ink': '#15171C',
+        },
+        boxShadow: {
+          'card': '0 1px 2px rgba(16,30,75,0.04), 0 8px 24px -8px rgba(16,30,75,0.10)',
+          'card-hover': '0 4px 8px rgba(16,30,75,0.06), 0 16px 32px -12px rgba(16,30,75,0.18)',
+        },
+      }
+    }
+  }
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body { -webkit-font-smoothing: antialiased; }
+
+  /* Signatur-Element: diagonaler "Trikot-Cut" als Sektionstrenner,
+     angelehnt an die Schräge einer Vereins-Kapitänsbinde / Trikot-Einsatz */
+  .jersey-cut-bottom {
+    clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+  }
+  .jersey-cut-top {
+    clip-path: polygon(0 12%, 100% 0, 100% 100%, 0 100%);
+  }
+  @media (max-width: 767px) {
+    .jersey-cut-bottom { clip-path: polygon(0 0, 100% 0, 100% 96%, 0 100%); }
+    .jersey-cut-top { clip-path: polygon(0 4%, 100% 0, 100% 100%, 0 100%); }
+  }
+
+  /* Scoreboard-Zähler im Hero */
+  .stat-divider:not(:last-child) {
+    border-right: 1px solid rgba(255,255,255,0.18);
+  }
+
+  /* Modal Basis */
+  .modal-overlay { background: rgba(11,21,51,0.72); backdrop-filter: blur(2px); }
+  .modal-panel { animation: modal-in .22s ease-out; }
+  @keyframes modal-in {
+    from { opacity: 0; transform: translateY(12px) scale(.98); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  /* Sichtbarer Fokus-Ring für Barrierefreiheit */
+  a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+    outline: 2px solid #2E5BFF;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Reduced motion respektieren */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .modal-panel { animation: none; }
+    * { transition-duration: 0.001ms !important; }
+  }
+
+  .nav-link { position: relative; }
+  .nav-link::after {
+    content: ""; position: absolute; left: 0; bottom: -4px; height: 2px; width: 0;
+    background: #2E5BFF; transition: width .2s ease;
+  }
+  .nav-link:hover::after, .nav-link:focus-visible::after { width: 100%; }
+
+  .card-lift { transition: transform .25s ease, box-shadow .25s ease; }
+  .card-lift:hover { transform: translateY(-4px); }
+</style>
+</head>
+
+<body class="bg-[#FAFAF9] text-sva-ink font-sans antialiased">
+
+<!-- Skip-Link für Tastatur-/Screenreader-Nutzer -->
+<a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[999] focus:bg-white focus:text-sva-blue focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-card">
+  Zum Inhalt springen
+</a>
+
+<!-- ==========================================================
+     1. HEADER / NAVIGATION
+     ========================================================== -->
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-sva-blue-100">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="flex items-center justify-between h-20">
+
+      <!-- Logo -->
+      <a href="#top" class="flex items-center gap-3 group" aria-label="SV Achternmeer e.V. – Startseite">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M22 2 L40 9 V21 C40 32 32.8 39.6 22 42 C11.2 39.6 4 32 4 21 V9 L22 2Z" fill="#1E3A8A"/>
+          <path d="M22 6 L36 11.5 V21 C36 30.2 30.4 36.3 22 38.4 C13.6 36.3 8 30.2 8 21 V11.5 L22 6Z" fill="#FAFAF9"/>
+          <path d="M22 12 L18 22 H26 L22 32" stroke="#1E3A8A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        <span class="leading-tight">
+          <span class="block font-extrabold text-lg tracking-tight text-sva-ink">SV Achternmeer</span>
+          <span class="block text-[11px] font-semibold tracking-[0.2em] text-sva-blue uppercase">e.V. · seit 1967</span>
+        </span>
+      </a>
+
+      <!-- Desktop-Navigation -->
+      <nav aria-label="Hauptnavigation" class="hidden lg:flex items-center gap-8 text-[15px] font-semibold text-sva-ink">
+        <a href="#aktuelles" class="nav-link py-2">Aktuelles</a>
+        <a href="#abteilungen" class="nav-link py-2">Abteilungen</a>
+        <a href="#mitgliedschaft" class="nav-link py-2">Mitgliedschaft</a>
+        <a href="#fanshop" class="nav-link py-2">Fanshop</a>
+        <a href="#sponsoren" class="nav-link py-2">Sponsoren</a>
+        <a href="#kontakt" class="nav-link py-2">Kontakt</a>
+      </nav>
+
+      <div class="hidden lg:block">
+        <a href="#mitgliedschaft" class="inline-flex items-center gap-2 bg-sva-blue hover:bg-sva-blue-700 text-white font-semibold text-sm px-5 py-3 rounded-lg shadow-card transition-colors">
+          Mitglied werden
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobileMenuBtn" type="button" aria-controls="mobileMenu" aria-expanded="false" class="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-lg border border-sva-blue-100 text-sva-blue">
+        <span class="sr-only">Menü öffnen</span>
+        <svg id="iconOpen" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg id="iconClose" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="hidden"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile-Navigation -->
+  <nav id="mobileMenu" aria-label="Mobile Navigation" class="hidden lg:hidden border-t border-sva-blue-100 bg-white">
+    <div class="px-5 py-4 flex flex-col gap-1 text-[15px] font-semibold">
+      <a href="#aktuelles" class="py-3 border-b border-sva-blue-50">Aktuelles</a>
+      <a href="#abteilungen" class="py-3 border-b border-sva-blue-50">Abteilungen</a>
+      <a href="#mitgliedschaft" class="py-3 border-b border-sva-blue-50">Mitgliedschaft</a>
+      <a href="#fanshop" class="py-3 border-b border-sva-blue-50">Fanshop</a>
+      <a href="#sponsoren" class="py-3 border-b border-sva-blue-50">Sponsoren</a>
+      <a href="#kontakt" class="py-3 border-b border-sva-blue-50">Kontakt</a>
+      <a href="#mitgliedschaft" class="mt-3 text-center bg-sva-blue text-white px-5 py-3 rounded-lg">Mitglied werden</a>
+    </div>
+  </nav>
+</header>
+
+<main id="main-content">
+
+<!-- ==========================================================
+     2. HERO
+     ========================================================== -->
+<section id="top" class="relative bg-sva-blue text-white pb-16 md:pb-24">
+  <div class="jersey-cut-bottom absolute inset-0 bg-gradient-to-br from-sva-blue-600 via-sva-blue to-sva-blue-800 -z-10"></div>
+
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 pt-16 md:pt-24">
+    <div class="grid lg:grid-cols-12 gap-10 items-center">
+      <div class="lg:col-span-7">
+        <p class="inline-flex items-center gap-2 text-xs font-bold tracking-[0.22em] uppercase text-sva-blue-200 mb-5">
+          <span class="w-6 h-px bg-sva-blue-200"></span> Wardenburg · Irisweg 17
+        </p>
+        <h1 class="font-black text-4xl sm:text-5xl md:text-6xl leading-[1.05] tracking-tight">
+          Ein Verein.<br class="hidden sm:block"> Vier Abteilungen.<br class="hidden sm:block">
+          <span class="text-sva-blue-200">Ein gemeinsamer Antritt.</span>
+        </h1>
+        <p class="mt-6 text-lg text-sva-blue-100 max-w-xl leading-relaxed">
+          Der SV Achternmeer e.V. ist die sportliche Heimat für Fußball, Gymnastik, Jazzdance und
+          Kindersport in Wardenburg – für Anfänger, Talente und alle, die einfach gerne in Bewegung sind.
+        </p>
+        <div class="mt-9 flex flex-wrap gap-4">
+          <a href="#mitgliedschaft" class="inline-flex items-center gap-2 bg-white text-sva-blue font-bold px-7 py-4 rounded-lg shadow-card hover:shadow-card-hover transition-shadow">
+            Jetzt Mitglied werden
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <a href="#abteilungen" class="inline-flex items-center gap-2 border border-white/30 hover:border-white/60 text-white font-semibold px-7 py-4 rounded-lg transition-colors">
+            Abteilungen entdecken
+          </a>
+        </div>
+      </div>
+
+      <!-- Hero-Bild -->
+      <div class="lg:col-span-5">
+        <div class="relative rounded-2xl overflow-hidden shadow-card-hover ring-1 ring-white/10">
+          <img src="https://placehold.co/700x560/0B1533/FAFAF9?text=Vereinsfoto%0ASV+Achternmeer"
+               alt="Mannschaftsfoto des SV Achternmeer e.V. auf dem Vereinsgelände"
+               class="w-full h-full object-cover aspect-[5/4]" loading="eager">
+        </div>
+      </div>
+    </div>
+
+    <!-- Scoreboard / Kennzahlen -->
+    <div class="mt-16 md:mt-20 grid grid-cols-2 md:grid-cols-4 gap-y-8 bg-white/5 border border-white/10 rounded-2xl px-6 py-8">
+      <div class="text-center stat-divider">
+        <div class="font-black text-3xl md:text-4xl">1967</div>
+        <div class="text-sva-blue-200 text-sm font-medium mt-1">Gegründet</div>
+      </div>
+      <div class="text-center stat-divider">
+        <div class="font-black text-3xl md:text-4xl">4</div>
+        <div class="text-sva-blue-200 text-sm font-medium mt-1">Abteilungen</div>
+      </div>
+      <div class="text-center stat-divider">
+        <div class="font-black text-3xl md:text-4xl">8</div>
+        <div class="text-sva-blue-200 text-sm font-medium mt-1">Fußball-Mannschaften</div>
+      </div>
+      <div class="text-center">
+        <div class="font-black text-3xl md:text-4xl">700+</div>
+        <div class="text-sva-blue-200 text-sm font-medium mt-1">Mitglieder</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================
+     3. AKTUELLES
+     ========================================================== -->
+<section id="aktuelles" class="py-20 md:py-28 scroll-mt-20">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
+      <div>
+        <p class="text-xs font-bold tracking-[0.22em] uppercase text-sva-blue mb-3">Vereinsleben</p>
+        <h2 class="font-black text-3xl md:text-4xl tracking-tight">Aktuelles</h2>
+      </div>
+      <p class="text-sva-ink/60 max-w-md">Spielberichte, Vereins-Mitteilungen und Termine – alles Wichtige rund um den SV Achternmeer.</p>
+    </div>
+
+    <div id="newsGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- News-Karten werden per JS aus newsData gerendert -->
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================
+     4. ABTEILUNGEN
+     ========================================================== -->
+<section id="abteilungen" class="py-20 md:py-28 bg-white border-y border-sva-blue-100 scroll-mt-20">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="max-w-2xl mb-12">
+      <p class="text-xs font-bold tracking-[0.22em] uppercase text-sva-blue mb-3">Sportangebot</p>
+      <h2 class="font-black text-3xl md:text-4xl tracking-tight">Unsere Abteilungen</h2>
+      <p class="mt-4 text-sva-ink/60 leading-relaxed">Vom Kleinfeld bis zur Tanzfläche: vier Abteilungen, ein Verein. Klicke auf eine Kachel für Zeiten, Trainer und Kontakt.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <!-- Fußball -->
+      <button data-modal="modal-fussball" class="dept-card group text-left bg-[#FAFAF9] border border-sva-blue-100 rounded-2xl overflow-hidden shadow-card card-lift hover:shadow-card-hover">
+        <div class="relative aspect-[4/3] overflow-hidden">
+          <img src="https://placehold.co/500x400/1E3A8A/FAFAF9?text=Fu%C3%9Fball" alt="Fußballspieler des SV Achternmeer beim Training" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+        </div>
+        <div class="p-6">
+          <h3 class="font-bold text-lg">Fußball</h3>
+          <p class="text-sm text-sva-ink/60 mt-1">8 Mannschaften · Herren &amp; Jugend</p>
+          <span class="inline-flex items-center gap-1 text-sva-blue text-sm font-semibold mt-4">Mannschaften ansehen
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </span>
+        </div>
+      </button>
+
+      <!-- Gymnastik -->
+      <button data-modal="modal-gymnastik" class="dept-card group text-left bg-[#FAFAF9] border border-sva-blue-100 rounded-2xl overflow-hidden shadow-card card-lift hover:shadow-card-hover">
+        <div class="relative aspect-[4/3] overflow-hidden">
+          <img src="https://placehold.co/500x400/1E3A8A/FAFAF9?text=Gymnastik" alt="Gymnastikgruppe des SV Achternmeer in der Halle" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+        </div>
+        <div class="p-6">
+          <h3 class="font-bold text-lg">Gymnastik</h3>
+          <p class="text-sm text-sva-ink/60 mt-1">Fitness &amp; Beweglichkeit für alle</p>
+          <span class="inline-flex items-center gap-1 text-sva-blue text-sm font-semibold mt-4">Details ansehen
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </span>
+        </div>
+      </button>
+
+      <!-- Jazzdance -->
+      <button data-modal="modal-jazzdance" class="dept-card group text-left bg-[#FAFAF9] border border-sva-blue-100 rounded-2xl overflow-hidden shadow-card card-lift hover:shadow-card-hover">
+        <div class="relative aspect-[4/3] overflow-hidden">
+          <img src="https://placehold.co/500x400/1E3A8A/FAFAF9?text=Jazzdance" alt="Jazzdance-Gruppe des SV Achternmeer bei einer Aufführung" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+        </div>
+        <div class="p-6">
+          <h3 class="font-bold text-lg">Jazzdance</h3>
+          <p class="text-sm text-sva-ink/60 mt-1">Tanz, Ausdruck &amp; Rhythmus</p>
+          <span class="inline-flex items-center gap-1 text-sva-blue text-sm font-semibold mt-4">Details ansehen
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </span>
+        </div>
+      </button>
+
+      <!-- Kindersport -->
+      <button data-modal="modal-kindersport" class="dept-card group text-left bg-[#FAFAF9] border border-sva-blue-100 rounded-2xl overflow-hidden shadow-card card-lift hover:shadow-card-hover">
+        <div class="relative aspect-[4/3] overflow-hidden">
+          <img src="https://placehold.co/500x400/1E3A8A/FAFAF9?text=Kindersport" alt="Kindersportgruppe des SV Achternmeer beim Toben in der Halle" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+        </div>
+        <div class="p-6">
+          <h3 class="font-bold text-lg">Kindersport</h3>
+          <p class="text-sm text-sva-ink/60 mt-1">Spielerisch stark werden</p>
+          <span class="inline-flex items-center gap-1 text-sva-blue text-sm font-semibold mt-4">Details ansehen
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </span>
+        </div>
+      </button>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================
+     5. MITGLIEDSCHAFT
+     ========================================================== -->
+<section id="mitgliedschaft" class="py-20 md:py-28 scroll-mt-20">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="grid lg:grid-cols-12 gap-12">
+
+      <div class="lg:col-span-5">
+        <p class="text-xs font-bold tracking-[0.22em] uppercase text-sva-blue mb-3">Dabei sein</p>
+        <h2 class="font-black text-3xl md:text-4xl tracking-tight">Mitgliedschaft</h2>
+        <p class="mt-5 text-sva-ink/70 leading-relaxed">
+          Der Beitritt zum SV Achternmeer e.V. ist unkompliziert: Antrag ausfüllen, unterschreiben und
+          bei der Geschäftsstelle oder deiner Abteilungsleitung abgeben. Neue Mitglieder sind in allen
+          Abteilungen jederzeit willkommen.
+        </p>
+
+        <div class="mt-8 rounded-2xl border border-sva-blue-100 overflow-hidden">
+          <table class="w-full text-sm">
+            <caption class="sr-only">Übersicht der Mitgliedsbeiträge</caption>
+            <thead>
+              <tr class="bg-sva-blue text-white text-left">
+                <th scope="col" class="py-3 px-5 font-semibold">Beitragsart</th>
+                <th scope="col" class="py-3 px-5 font-semibold text-right">pro Monat</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-sva-blue-100">
+              <tr><td class="py-3 px-5">Kinder &amp; Jugendliche (bis 17 J.)</td><td class="py-3 px-5 text-right font-semibold">6,00 €</td></tr>
+              <tr class="bg-[#FAFAF9]"><td class="py-3 px-5">Erwachsene</td><td class="py-3 px-5 text-right font-semibold">9,00 €</td></tr>
+              <tr><td class="py-3 px-5">Familie</td><td class="py-3 px-5 text-right font-semibold">18,00 €</td></tr>
+              <tr class="bg-[#FAFAF9]"><td class="py-3 px-5">Passive Mitgliedschaft</td><td class="py-3 px-5 text-right font-semibold">4,00 €</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-xs text-sva-ink/50 mt-3">Genaue Konditionen entnimmst du bitte der aktuellen Beitragsordnung.</p>
+      </div>
+
+      <div class="lg:col-span-7">
+        <h3 class="font-bold text-lg mb-5">Formulare &amp; Downloads</h3>
+        <div class="grid sm:grid-cols-2 gap-4">
+
+          <a href="/downloads/mitgliedsantrag.pdf" class="doc-card group flex items-start gap-4 p-5 rounded-xl border border-sva-blue-100 bg-white shadow-card card-lift hover:shadow-card-hover">
+            <span class="shrink-0 w-11 h-11 rounded-lg bg-sva-blue-50 text-sva-blue flex items-center justify-center">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </span>
+            <span>
+              <span class="block font-semibold">Mitgliedsantrag</span>
+              <span class="block text-xs text-sva-ink/50 mt-0.5">PDF-Formular</span>
+            </span>
+          </a>
+
+          <a href="/downloads/vereinssatzung.pdf" class="doc-card group flex items-start gap-4 p-5 rounded-xl border border-sva-blue-100 bg-white shadow-card card-lift hover:shadow-card-hover">
+            <span class="shrink-0 w-11 h-11 rounded-lg bg-sva-blue-50 text-sva-blue flex items-center justify-center">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </span>
+            <span>
+              <span class="block font-semibold">Vereinssatzung</span>
+              <span class="block text-xs text-sva-ink/50 mt-0.5">PDF-Dokument</span>
+            </span>
+          </a>
+
+          <a href="/downloads/beitragsordnung.pdf" class="doc-card group flex items-start gap-4 p-5 rounded-xl border border-sva-blue-100 bg-white shadow-card card-lift hover:shadow-card-hover">
+            <span class="shrink-0 w-11 h-11 rounded-lg bg-sva-blue-50 text-sva-blue flex items-center justify-center">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </span>
+            <span>
+              <span class="block font-semibold">Beitragsordnung</span>
+              <span class="block text-xs text-sva-ink/50 mt-0.5">PDF-Dokument</span>
+            </span>
+          </a>
+
+          <a href="/downloads/spielerlaubnisantrag.pdf" class="doc-card group flex items-start gap-4 p-5 rounded-xl border border-sva-blue-100 bg-white shadow-card card-lift hover:shadow-card-hover">
+            <span class="shrink-0 w-11 h-11 rounded-lg bg-sva-blue-50 text-sva-blue flex items-center justify-center">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </span>
+            <span>
+              <span class="block font-semibold">Spielerlaubnisantrag</span>
+              <span class="block text-xs text-sva-ink/50 mt-0.5">PDF-Formular</span>
+            </span>
+          </a>
+        </div>
+
+        <a href="#kontakt" class="inline-flex items-center gap-2 mt-8 bg-sva-blue hover:bg-sva-blue-700 text-white font-semibold px-6 py-3.5 rounded-lg shadow-card transition-colors">
+          Fragen zur Mitgliedschaft? Kontakt aufnehmen
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================
+     6. FANSHOP
+     ========================================================== -->
+<section id="fanshop" class="py-20 md:py-28 bg-white border-y border-sva-blue-100 scroll-mt-20">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
+      <div>
+        <p class="text-xs font-bold tracking-[0.22em] uppercase text-sva-blue mb-3">Merchandise</p>
+        <h2 class="font-black text-3xl md:text-4xl tracking-tight">Fanshop</h2>
+      </div>
+      <a href="https://fanshop.sv-achternmeer.de" class="inline-flex items-center gap-2 bg-sva-blue hover:bg-sva-blue-700 text-white font-semibold px-6 py-3.5 rounded-lg shadow-card transition-colors whitespace-nowrap">
+        Zum Fanshop
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="group rounded-2xl overflow-hidden border border-sva-blue-100 shadow-card card-lift hover:shadow-card-hover">
+        <div class="aspect-square overflow-hidden bg-sva-blue-50">
+          <img src="https://placehold.co/400x400/EEF2FB/1E3A8A?text=Trikot" alt="Vereinstrikot des SV Achternmeer" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+        </div>
+        <div class="p-4">
+          <p class="font-semibold text-sm">Heimtrikot 25/26</p>
+          <p class="text-sva-blue font-bold mt-1">54,90 €</p>
+        </div>
+      </div>
+      <div class="group rounded-2xl overflow-hidden border border-sva-blue-100 shadow-card card-lift hover:shadow-card-hover">
+        <div class="aspect-square overflow-hidden bg-sva-blue-50">
+          <img src="https://placehold.co/400x400/EEF2FB/1E3A8A?text=Hoodie" alt="Hoodie mit Vereinslogo des SV Achternmeer" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+        </div>
+        <div class="p-4">
+          <p class="font-semibold text-sm">Vereins-Hoodie</p>
+          <p class="text-sva-blue font-bold mt-1">39,90 €</p>
+        </div>
+      </div>
+      <div class="group rounded-2xl overflow-hidden border border-sva-blue-100 shadow-card card-lift hover:shadow-card-hover">
+        <div class="aspect-square overflow-hidden bg-sva-blue-50">
+          <img src="https://placehold.co/400x400/EEF2FB/1E3A8A?text=Schal" alt="Fanschal des SV Achternmeer" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+        </div>
+        <div class="p-4">
+          <p class="font-semibold text-sm">Fanschal</p>
+          <p class="text-sva-blue font-bold mt-1">14,90 €</p>
+        </div>
+      </div>
+      <div class="group rounded-2xl overflow-hidden border border-sva-blue-100 shadow-card card-lift hover:shadow-card-hover">
+        <div class="aspect-square overflow-hidden bg-sva-blue-50">
+          <img src="https://placehold.co/400x400/EEF2FB/1E3A8A?text=Cap" alt="Cap mit Vereinslogo des SV Achternmeer" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+        </div>
+        <div class="p-4">
+          <p class="font-semibold text-sm">Cap</p>
+          <p class="text-sva-blue font-bold mt-1">19,90 €</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================
+     7. SPONSOREN
+     ========================================================== -->
+<section id="sponsoren" class="py-20 md:py-28 scroll-mt-20">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="text-center max-w-xl mx-auto mb-12">
+      <p class="text-xs font-bold tracking-[0.22em] uppercase text-sva-blue mb-3">Starke Partner</p>
+      <h2 class="font-black text-3xl md:text-4xl tracking-tight">Unsere Sponsoren</h2>
+      <p class="mt-4 text-sva-ink/60 leading-relaxed">Ohne unsere Partner aus der Region wäre der Vereinsbetrieb nicht möglich. Vielen Dank für die langjährige Unterstützung.</p>
+    </div>
+
+    <div id="sponsorGridPreview" class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-4">
+      <!-- 12 Vorschau-Logos, Rest über Modal -->
+    </div>
+
+    <div class="text-center mt-10">
+      <button data-modal="modal-sponsoren" class="inline-flex items-center gap-2 border border-sva-blue text-sva-blue hover:bg-sva-blue hover:text-white font-semibold px-6 py-3.5 rounded-lg transition-colors">
+        Alle 26 Sponsoren ansehen
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================
+     8. KONTAKT & ANFAHRT
+     ========================================================== -->
+<section id="kontakt" class="py-20 md:py-28 bg-white border-t border-sva-blue-100 scroll-mt-20">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="max-w-2xl mb-12">
+      <p class="text-xs font-bold tracking-[0.22em] uppercase text-sva-blue mb-3">Vorbeikommen</p>
+      <h2 class="font-black text-3xl md:text-4xl tracking-tight">Kontakt &amp; Anfahrt</h2>
+    </div>
+
+    <div class="grid lg:grid-cols-12 gap-10">
+
+      <div class="lg:col-span-5 space-y-8">
+        <div class="p-6 rounded-2xl border border-sva-blue-100 bg-[#FAFAF9]">
+          <h3 class="font-bold text-lg mb-4">Geschäftsstelle</h3>
+          <address class="not-italic text-sm text-sva-ink/75 leading-relaxed space-y-1">
+            <p class="font-semibold text-sva-ink">SV Achternmeer e.V.</p>
+            <p>Irisweg 17</p>
+            <p>26203 Wardenburg</p>
+            <p class="pt-2"><a href="tel:+494407123456" class="hover:text-sva-blue">Tel.: 04407 123456</a></p>
+            <p><a href="mailto:info@sv-achternmeer.de" class="hover:text-sva-blue">info@sv-achternmeer.de</a></p>
+          </address>
+        </div>
+
+        <div class="p-6 rounded-2xl border border-sva-blue-100 bg-[#FAFAF9]">
+          <h3 class="font-bold text-lg mb-4">Ansprechpartner</h3>
+          <ul class="text-sm text-sva-ink/75 space-y-3">
+            <li class="flex justify-between gap-4"><span>1. Vorsitzende/r</span><span class="font-medium text-sva-ink">Petra Meyer</span></li>
+            <li class="flex justify-between gap-4"><span>Jugendwart/in</span><span class="font-medium text-sva-ink">Jan Ostendorf</span></li>
+            <li class="flex justify-between gap-4"><span>Geschäftsstelle</span><span class="font-medium text-sva-ink">Anke Krüger</span></li>
+          </ul>
+        </div>
+
+        <a href="https://www.google.com/maps/dir/?api=1&destination=Irisweg+17,+26203+Wardenburg" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-sva-blue hover:bg-sva-blue-700 text-white font-semibold px-6 py-3.5 rounded-lg shadow-card transition-colors">
+          Route in Google Maps öffnen
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+      </div>
+
+      <div class="lg:col-span-7">
+        <div class="rounded-2xl overflow-hidden border border-sva-blue-100 shadow-card h-full min-h-[380px]">
+          <iframe
+            title="Anfahrtskarte SV Achternmeer e.V., Irisweg 17, 26203 Wardenburg"
+            src="https://www.google.com/maps?q=Irisweg+17,+26203+Wardenburg&output=embed"
+            width="100%" height="100%" style="border:0; min-height:380px;"
+            allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ==========================================================
+     9. FOOTER
+     ========================================================== -->
+<footer class="bg-sva-blue-800 text-sva-blue-100">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 py-16">
+    <div class="grid md:grid-cols-4 gap-10">
+
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <svg width="36" height="36" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M22 2 L40 9 V21 C40 32 32.8 39.6 22 42 C11.2 39.6 4 32 4 21 V9 L22 2Z" fill="#FAFAF9"/>
+            <path d="M22 12 L18 22 H26 L22 32" stroke="#1E3A8A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+          <span class="font-extrabold text-white text-lg">SV Achternmeer e.V.</span>
+        </div>
+        <p class="text-sm leading-relaxed text-sva-blue-200">Irisweg 17 · 26203 Wardenburg<br>Gegründet 1967</p>
+      </div>
+
+      <nav aria-label="Footer Sektionen">
+        <h3 class="text-white font-semibold text-sm mb-4">Verein</h3>
+        <ul class="space-y-2.5 text-sm">
+          <li><a href="#aktuelles" class="hover:text-white">Aktuelles</a></li>
+          <li><a href="#abteilungen" class="hover:text-white">Abteilungen</a></li>
+          <li><a href="#mitgliedschaft" class="hover:text-white">Mitgliedschaft</a></li>
+          <li><a href="#sponsoren" class="hover:text-white">Sponsoren</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-label="Rechtliches">
+        <h3 class="text-white font-semibold text-sm mb-4">Rechtliches</h3>
+        <ul class="space-y-2.5 text-sm">
+          <li><a href="/impressum" class="hover:text-white">Impressum</a></li>
+          <li><a href="/datenschutz" class="hover:text-white">Datenschutz</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <h3 class="text-white font-semibold text-sm mb-4">Social Media</h3>
+        <div class="flex gap-3">
+          <a href="https://instagram.com/sv.achternmeer" aria-label="SV Achternmeer auf Instagram" class="w-10 h-10 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+          </a>
+          <a href="https://facebook.com/svachternmeer" aria-label="SV Achternmeer auf Facebook" class="w-10 h-10 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://youtube.com/@svachternmeer" aria-label="SV Achternmeer auf YouTube" class="w-10 h-10 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="4"/><polygon points="10 9 16 12 10 15" fill="currentColor" stroke="none"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-white/10 mt-12 pt-8 text-xs text-sva-blue-300 flex flex-col sm:flex-row justify-between gap-3">
+      <p>© <span id="copyYear"></span> SV Achternmeer e.V. Alle Rechte vorbehalten.</p>
+      <p>sv-achternmeer.de</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ==========================================================
+     MODAL-CONTAINER (generisch, wird per JS befüllt/gesteuert)
+     ========================================================== -->
+
+<!-- News-Detail-Modal -->
+<div id="modal-news" class="hidden fixed inset-0 z-[100] modal-overlay flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="newsModalTitle">
+  <div class="modal-panel bg-white rounded-2xl max-w-2xl w-full max-h-[85vh] overflow-y-auto shadow-card-hover">
+    <div class="sticky top-0 bg-white border-b border-sva-blue-100 flex items-center justify-between px-6 py-4">
+      <h3 id="newsModalTitle" class="font-bold text-lg pr-4">Titel</h3>
+      <button data-close-modal class="shrink-0 w-9 h-9 rounded-lg hover:bg-sva-blue-50 text-sva-ink/60 hover:text-sva-blue flex items-center justify-center" aria-label="Schließen">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="px-6 py-6">
+      <img id="newsModalImage" src="" alt="" class="w-full aspect-video object-cover rounded-xl mb-5">
+      <p id="newsModalMeta" class="text-xs font-semibold text-sva-blue uppercase tracking-wide mb-3"></p>
+      <div id="newsModalBody" class="text-sm text-sva-ink/75 leading-relaxed space-y-3"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Fußball: Mannschaftsübersicht-Modal -->
+<div id="modal-fussball" class="hidden fixed inset-0 z-[100] modal-overlay flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="fussballModalTitle">
+  <div class="modal-panel bg-white rounded-2xl max-w-3xl w-full max-h-[85vh] overflow-y-auto shadow-card-hover">
+    <div class="sticky top-0 bg-white border-b border-sva-blue-100 flex items-center justify-between px-6 py-4">
+      <h3 id="fussballModalTitle" class="font-bold text-lg">Abteilung Fußball – Mannschaften</h3>
+      <button data-close-modal class="shrink-0 w-9 h-9 rounded-lg hover:bg-sva-blue-50 text-sva-ink/60 hover:text-sva-blue flex items-center justify-center" aria-label="Schließen">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="px-6 py-6">
+      <p class="text-sm text-sva-ink/60 mb-5">Wähle eine Mannschaft für Trainingszeiten, Trainerkontakt und Mannschaftsbild.</p>
+      <div id="teamGrid" class="grid grid-cols-2 sm:grid-cols-4 gap-3"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Fußball: Team-Detail-Modal -->
+<div id="modal-team" class="hidden fixed inset-0 z-[110] modal-overlay flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="teamModalTitle">
+  <div class="modal-panel bg-white rounded-2xl max-w-xl w-full max-h-[85vh] overflow-y-auto shadow-card-hover">
+    <div class="sticky top-0 bg-white border-b border-sva-blue-100 flex items-center justify-between px-6 py-4">
+      <h3 id="teamModalTitle" class="font-bold text-lg">Mannschaft</h3>
+      <button data-close-modal class="shrink-0 w-9 h-9 rounded-lg hover:bg-sva-blue-50 text-sva-ink/60 hover:text-sva-blue flex items-center justify-center" aria-label="Schließen">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="px-6 py-6">
+      <img id="teamModalImage" src="" alt="" class="w-full aspect-video object-cover rounded-xl mb-5">
+      <dl class="text-sm space-y-4">
+        <div>
+          <dt class="font-semibold text-sva-ink/50 text-xs uppercase tracking-wide mb-1">Trainingszeiten</dt>
+          <dd id="teamModalTimes" class="text-sva-ink"></dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-sva-ink/50 text-xs uppercase tracking-wide mb-1">Trainer/in</dt>
+          <dd id="teamModalCoach" class="text-sva-ink"></dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-sva-ink/50 text-xs uppercase tracking-wide mb-1">Kontakt</dt>
+          <dd id="teamModalContact" class="text-sva-ink"></dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</div>
+
+<!-- Sonstige Abteilungen: Gymnastik / Jazzdance / Kindersport -->
+<template id="dept-template">
+  <div class="modal-panel bg-white rounded-2xl max-w-xl w-full max-h-[85vh] overflow-y-auto shadow-card-hover">
+    <div class="sticky top-0 bg-white border-b border-sva-blue-100 flex items-center justify-between px-6 py-4">
+      <h3 class="dept-title font-bold text-lg">Abteilung</h3>
+      <button data-close-modal class="shrink-0 w-9 h-9 rounded-lg hover:bg-sva-blue-50 text-sva-ink/60 hover:text-sva-blue flex items-center justify-center" aria-label="Schließen">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="px-6 py-6">
+      <img class="dept-img w-full aspect-video object-cover rounded-xl mb-5" src="" alt="">
+      <dl class="text-sm space-y-4">
+        <div>
+          <dt class="font-semibold text-sva-ink/50 text-xs uppercase tracking-wide mb-1">Trainingszeiten</dt>
+          <dd class="dept-times text-sva-ink"></dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-sva-ink/50 text-xs uppercase tracking-wide mb-1">Übungsleiter/in</dt>
+          <dd class="dept-lead text-sva-ink"></dd>
+        </div>
+        <div>
+          <dt class="font-semibold text-sva-ink/50 text-xs uppercase tracking-wide mb-1">Kontakt</dt>
+          <dd class="dept-contact text-sva-ink"></dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</template>
+<div id="modal-gymnastik" class="hidden fixed inset-0 z-[100] modal-overlay flex items-center justify-center p-4" role="dialog" aria-modal="true"></div>
+<div id="modal-jazzdance" class="hidden fixed inset-0 z-[100] modal-overlay flex items-center justify-center p-4" role="dialog" aria-modal="true"></div>
+<div id="modal-kindersport" class="hidden fixed inset-0 z-[100] modal-overlay flex items-center justify-center p-4" role="dialog" aria-modal="true"></div>
+
+<!-- Sponsoren-Modal -->
+<div id="modal-sponsoren" class="hidden fixed inset-0 z-[100] modal-overlay flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="sponsorModalTitle">
+  <div class="modal-panel bg-white rounded-2xl max-w-4xl w-full max-h-[85vh] overflow-y-auto shadow-card-hover">
+    <div class="sticky top-0 bg-white border-b border-sva-blue-100 flex items-center justify-between px-6 py-4">
+      <h3 id="sponsorModalTitle" class="font-bold text-lg">Alle Sponsoren</h3>
+      <button data-close-modal class="shrink-0 w-9 h-9 rounded-lg hover:bg-sva-blue-50 text-sva-ink/60 hover:text-sva-blue flex items-center justify-center" aria-label="Schließen">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="px-6 py-6">
+      <div id="sponsorGridFull" class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-4"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ==========================================================
+   INHALT / DATEN
+   Publii-Hinweis: Diese Objekte enthalten alle dynamischen
+   Inhalte (News, Mannschaften, Abteilungen, Sponsoren).
+   Beim Redesign in Publii einfach durch echte Post-/Feld-
+   Daten ersetzen bzw. serverseitig ausgeben.
+   ========================================================== */
+
+const newsData = [
+  {
+    id: "n1",
+    title: "1. Herren gewinnt Kreispokal-Achtelfinale",
+    date: "18. Juli 2026",
+    category: "Spielbericht",
+    image: "https://placehold.co/700x400/1E3A8A/FAFAF9?text=Spielbericht",
+    excerpt: "Klarer 3:1-Auswärtssieg gegen den TuS Wardenburg II sichert den Einzug ins Achtelfinale.",
+    body: [
+      "Die 1. Herren des SV Achternmeer hat sich im Kreispokal gegen den TuS Wardenburg II mit 3:1 durchgesetzt und zieht damit ins Achtelfinale ein.",
+      "Nach frühem Rückstand drehte die Mannschaft durch zwei Tore nach Standardsituationen das Spiel und kontrollierte die zweite Halbzeit sicher.",
+      "Der nächste Pokalgegner wird in der kommenden Woche ausgelost."
+    ]
+  },
+  {
+    id: "n2",
+    title: "Neue Trainingszeiten für die Jugendabteilung",
+    date: "10. Juli 2026",
+    category: "Mitteilung",
+    image: "https://placehold.co/700x400/1E3A8A/FAFAF9?text=Mitteilung",
+    excerpt: "Ab August gelten für D- und E-Jugend angepasste Trainingszeiten auf dem Kunstrasenplatz.",
+    body: [
+      "Aufgrund der neuen Platzbelegung ab dem 1. August verschieben sich die Trainingszeiten der D- und E-Jugend um jeweils eine Stunde nach hinten.",
+      "Alle betroffenen Eltern und Spieler wurden bereits über die jeweiligen Trainer informiert.",
+      "Bei Rückfragen steht die Jugendabteilung gerne zur Verfügung."
+    ]
+  },
+  {
+    id: "n3",
+    title: "Sommerfest 2026: Save the Date",
+    date: "2. Juli 2026",
+    category: "Veranstaltung",
+    image: "https://placehold.co/700x400/1E3A8A/FAFAF9?text=Sommerfest",
+    excerpt: "Am 15. August lädt der SV Achternmeer wieder zum großen Sommerfest auf dem Vereinsgelände ein.",
+    body: [
+      "Der SV Achternmeer lädt am 15. August ab 15 Uhr zum traditionellen Sommerfest auf das Vereinsgelände am Irisweg ein.",
+      "Neben einem Fußballturnier der Alt-Herren erwarten die Gäste Kaffee und Kuchen, ein Grillstand sowie ein Programm für Kinder.",
+      "Der Eintritt ist frei, um Spenden für die Jugendarbeit wird gebeten."
+    ]
+  },
+  {
+    id: "n4",
+    title: "Jazzdance-Gruppe überzeugt beim Kreisentscheid",
+    date: "28. Juni 2026",
+    category: "Spielbericht",
+    image: "https://placehold.co/700x400/1E3A8A/FAFAF9?text=Jazzdance",
+    excerpt: "Die Jazzdance-Abteilung erreicht beim Kreisentscheid einen starken zweiten Platz.",
+    body: [
+      "Mit einer selbst choreografierten Kür sicherte sich die Jazzdance-Gruppe des SV Achternmeer den zweiten Platz beim diesjährigen Kreisentscheid.",
+      "Die Jury lobte besonders die saubere Synchronität und die kreative Musikauswahl der Gruppe.",
+      "Nächstes Ziel ist die Teilnahme am Bezirksentscheid im Herbst."
+    ]
+  },
+  {
+    id: "n5",
+    title: "Neue Übungsleiterin im Kindersport",
+    date: "20. Juni 2026",
+    category: "Mitteilung",
+    image: "https://placehold.co/700x400/1E3A8A/FAFAF9?text=Kindersport",
+    excerpt: "Seit Juni verstärkt eine erfahrene Übungsleiterin das Team der Kindersport-Abteilung.",
+    body: [
+      "Die Kindersport-Abteilung freut sich über Zuwachs: Seit Juni unterstützt eine ausgebildete Übungsleiterin das bestehende Team.",
+      "Damit kann das Angebot für die jüngsten Mitglieder weiter ausgebaut werden.",
+      "Interessierte Kinder ab 3 Jahren können jederzeit zu einer Schnupperstunde vorbeikommen."
+    ]
+  },
+  {
+    id: "n6",
+    title: "A-Jugend startet erfolgreich in die neue Saison",
+    date: "12. Juni 2026",
+    category: "Spielbericht",
+    image: "https://placehold.co/700x400/1E3A8A/FAFAF9?text=A-Jugend",
+    excerpt: "Zum Saisonauftakt setzt sich die A-Jugend souverän mit 4:0 durch.",
+    body: [
+      "Die A-Jugend des SV Achternmeer ist mit einem deutlichen 4:0-Heimsieg in die neue Saison gestartet.",
+      "Bereits zur Halbzeit stand es 3:0, in der zweiten Hälfte verwaltete die Mannschaft den komfortablen Vorsprung sicher.",
+      "Der nächste Auftritt folgt am kommenden Samstag auswärts."
+    ]
+  }
+];
+
+const teamsData = [
+  { id: "h1", name: "1. Herren", image: "https://placehold.co/600x340/1E3A8A/FAFAF9?text=1.+Herren", times: "Di. &amp; Do., 19:30–21:00 Uhr · Sportplatz Irisweg", coach: "Marco Focke", contact: "marco.focke@sv-achternmeer.de · 0170 1234567" },
+  { id: "h2", name: "2. Herren", image: "https://placehold.co/600x340/1E3A8A/FAFAF9?text=2.+Herren", times: "Mo. &amp; Mi., 19:00–20:30 Uhr · Sportplatz Irisweg", coach: "Timo Wilkens", contact: "timo.wilkens@sv-achternmeer.de · 0171 2345678" },
+  { id: "aj", name: "A-Jugend", image: "https://placehold.co/600x340/1E3A8A/FAFAF9?text=A-Jugend", times: "Di. &amp; Fr., 18:00–19:30 Uhr · Kunstrasenplatz", coach: "Bernd Schröder", contact: "bernd.schroeder@sv-achternmeer.de · 0172 3456789" },
+  { id: "bj", name: "B-Jugend", image: "https://placehold.co/600x340/1E3A8A/FAFAF9?text=B-Jugend", times: "Mo. &amp; Do., 17:30–19:00 Uhr · Kunstrasenplatz", coach: "Sven Ahlers", contact: "sven.ahlers@sv-achternmeer.de · 0173 4567890" },
+  { id: "cj", name: "C-Jugend", image: "https://placehold.co/600x340/1E3A8A/FAFAF9?text=C-Jugend", times: "Di. &amp; Fr., 17:00–18:30 Uhr · Kunstrasenplatz", coach: "Nadine Peters", contact: "nadine.peters@sv-achternmeer.de · 0174 5678901" },
+  { id: "dj", name: "D-Jugend", image: "https://placehold.co/600x340/1E3A8A/FAFAF9?text=D-Jugend", times: "Mo. &amp; Mi., 17:00–18:15 Uhr · Kunstrasenplatz", coach: "Frank Buschmann", contact: "frank.buschmann@sv-achternmeer.de · 0175 6789012" },
+  { id: "ej", name: "E-Jugend", image: "https://placehold.co/600x340/1E3A8A/FAFAF9?text=E-Jugend", times: "Di. &amp; Do., 16:30–17:45 Uhr · Kunstrasenplatz", coach: "Julia Meiners", contact: "julia.meiners@sv-achternmeer.de · 0176 7890123" },
+  { id: "fj", name: "F-Jugend", image: "https://placehold.co/600x340/1E3A8A/FAFAF9?text=F-Jugend", times: "Mi. &amp; Fr., 16:00–17:00 Uhr · Kunstrasenplatz", coach: "Katrin Voss", contact: "katrin.voss@sv-achternmeer.de · 0177 8901234" },
+];
+
+const departmentsData = {
+  "modal-gymnastik": {
+    title: "Gymnastik",
+    image: "https://placehold.co/700x400/1E3A8A/FAFAF9?text=Gymnastik",
+    times: "Montag, 19:00–20:00 Uhr · Sporthalle Wardenburg",
+    lead: "Ingrid Focke",
+    contact: "ingrid.focke@sv-achternmeer.de · 0170 9012345"
+  },
+  "modal-jazzdance": {
+    title: "Jazzdance",
+    image: "https://placehold.co/700x400/1E3A8A/FAFAF9?text=Jazzdance",
+    times: "Mittwoch, 18:00–19:30 Uhr · Sporthalle Wardenburg",
+    lead: "Melanie Struck",
+    contact: "melanie.struck@sv-achternmeer.de · 0171 0123456"
+  },
+  "modal-kindersport": {
+    title: "Kindersport",
+    image: "https://placehold.co/700x400/1E3A8A/FAFAF9?text=Kindersport",
+    times: "Freitag, 16:00–17:00 Uhr · Sporthalle Wardenburg",
+    lead: "Sabine Lange",
+    contact: "sabine.lange@sv-achternmeer.de · 0172 1234560"
+  }
+};
+
+const sponsorCount = 26;
+const sponsorNames = Array.from({length: sponsorCount}, (_, i) => `Sponsor ${i + 1}`);
+
+/* ==========================================================
+   RENDERING
+   ========================================================== */
+
+// Footer-Jahr
+document.getElementById('copyYear').textContent = new Date().getFullYear();
+
+// --- News-Grid ---
+const newsGrid = document.getElementById('newsGrid');
+newsData.forEach(item => {
+  const card = document.createElement('button');
+  card.type = "button";
+  card.className = "news-card group text-left bg-white border border-sva-blue-100 rounded-2xl overflow-hidden shadow-card card-lift hover:shadow-card-hover";
+  card.dataset.newsId = item.id;
+  card.innerHTML = `
+    <div class="aspect-video overflow-hidden">
+      <img src="${item.image}" alt="" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+    </div>
+    <div class="p-6">
+      <p class="text-xs font-bold text-sva-blue uppercase tracking-wide">${item.category} · ${item.date}</p>
+      <h3 class="font-bold text-lg mt-2 leading-snug">${item.title}</h3>
+      <p class="text-sm text-sva-ink/60 mt-2 leading-relaxed">${item.excerpt}</p>
+      <span class="inline-flex items-center gap-1 text-sva-blue text-sm font-semibold mt-4">Weiterlesen
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </span>
+    </div>`;
+  card.addEventListener('click', () => openNewsModal(item.id));
+  newsGrid.appendChild(card);
+});
+
+function openNewsModal(id) {
+  const item = newsData.find(n => n.id === id);
+  if (!item) return;
+  document.getElementById('newsModalTitle').textContent = item.title;
+  document.getElementById('newsModalImage').src = item.image;
+  document.getElementById('newsModalImage').alt = item.title;
+  document.getElementById('newsModalMeta').textContent = `${item.category} · ${item.date}`;
+  document.getElementById('newsModalBody').innerHTML = item.body.map(p => `<p>${p}</p>`).join('');
+  openModal('modal-news');
+}
+
+// --- Fußball: Team-Grid im Modal ---
+const teamGrid = document.getElementById('teamGrid');
+teamsData.forEach(team => {
+  const btn = document.createElement('button');
+  btn.type = "button";
+  btn.className = "text-left bg-[#FAFAF9] border border-sva-blue-100 rounded-xl overflow-hidden hover:shadow-card-hover transition-shadow";
+  btn.innerHTML = `
+    <div class="aspect-video overflow-hidden">
+      <img src="${team.image}" alt="" class="w-full h-full object-cover">
+    </div>
+    <div class="px-3 py-2.5">
+      <p class="font-semibold text-sm">${team.name}</p>
+    </div>`;
+  btn.addEventListener('click', () => openTeamModal(team.id));
+  teamGrid.appendChild(btn);
+});
+
+function openTeamModal(id) {
+  const team = teamsData.find(t => t.id === id);
+  if (!team) return;
+  document.getElementById('teamModalTitle').textContent = team.name;
+  document.getElementById('teamModalImage').src = team.image;
+  document.getElementById('teamModalImage').alt = `Mannschaftsfoto ${team.name} des SV Achternmeer`;
+  document.getElementById('teamModalTimes').innerHTML = team.times;
+  document.getElementById('teamModalCoach').textContent = team.coach;
+  document.getElementById('teamModalContact').textContent = team.contact;
+  openModal('modal-team');
+}
+
+// --- Sonstige Abteilungen (Gymnastik / Jazzdance / Kindersport) ---
+const deptTemplate = document.getElementById('dept-template');
+Object.keys(departmentsData).forEach(modalId => {
+  const data = departmentsData[modalId];
+  const container = document.getElementById(modalId);
+  const clone = deptTemplate.content.cloneNode(true);
+  clone.querySelector('.dept-title').textContent = `Abteilung ${data.title}`;
+  clone.querySelector('.dept-img').src = data.image;
+  clone.querySelector('.dept-img').alt = `Gruppenbild der Abteilung ${data.title} des SV Achternmeer`;
+  clone.querySelector('.dept-times').innerHTML = data.times;
+  clone.querySelector('.dept-lead').textContent = data.lead;
+  clone.querySelector('.dept-contact').textContent = data.contact;
+  container.appendChild(clone);
+});
+
+// --- Sponsoren ---
+function sponsorTile(name) {
+  return `<div class="flex items-center justify-center aspect-[3/2] rounded-lg border border-sva-blue-100 bg-[#FAFAF9] p-3">
+    <img src="https://placehold.co/160x90/E5E7EB/1E3A8A?text=${encodeURIComponent(name)}" alt="Logo ${name}" class="max-h-full max-w-full object-contain grayscale hover:grayscale-0 transition-all">
+  </div>`;
+}
+document.getElementById('sponsorGridPreview').innerHTML = sponsorNames.slice(0, 12).map(sponsorTile).join('');
+document.getElementById('sponsorGridFull').innerHTML = sponsorNames.map(sponsorTile).join('');
+
+/* ==========================================================
+   MODAL-STEUERUNG (generisch)
+   ========================================================== */
+let lastFocusedEl = null;
+
+function openModal(id) {
+  const modal = document.getElementById(id);
+  if (!modal) return;
+  lastFocusedEl = document.activeElement;
+  modal.classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+  const closeBtn = modal.querySelector('[data-close-modal]');
+  if (closeBtn) closeBtn.focus();
+}
+
+function closeModal(modal) {
+  modal.classList.add('hidden');
+  document.body.style.overflow = '';
+  if (lastFocusedEl) lastFocusedEl.focus();
+}
+
+// Öffnen über data-modal Buttons
+document.querySelectorAll('[data-modal]').forEach(btn => {
+  btn.addEventListener('click', () => openModal(btn.dataset.modal));
+});
+
+// Schließen über Close-Buttons, Overlay-Klick und Escape
+document.addEventListener('click', (e) => {
+  if (e.target.matches('[data-close-modal]') || e.target.closest('[data-close-modal]')) {
+    const modal = e.target.closest('[role="dialog"]');
+    if (modal) closeModal(modal);
+  }
+  // Klick auf Overlay (nicht auf das Panel selbst)
+  if (e.target.classList.contains('modal-overlay')) {
+    closeModal(e.target);
+  }
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('[role="dialog"]:not(.hidden)').forEach(closeModal);
+  }
+});
+
+/* ==========================================================
+   MOBILE NAVIGATION
+   ========================================================== */
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+const iconOpen = document.getElementById('iconOpen');
+const iconClose = document.getElementById('iconClose');
+
+mobileMenuBtn.addEventListener('click', () => {
+  const isOpen = !mobileMenu.classList.contains('hidden');
+  mobileMenu.classList.toggle('hidden');
+  iconOpen.classList.toggle('hidden');
+  iconClose.classList.toggle('hidden');
+  mobileMenuBtn.setAttribute('aria-expanded', String(!isOpen));
+});
+
+// Menü nach Klick auf Link automatisch schließen (mobil)
+mobileMenu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenu.classList.add('hidden');
+    iconOpen.classList.remove('hidden');
+    iconClose.classList.add('hidden');
+    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+  });
+});
+</script>
+
+</body>
+</html>
