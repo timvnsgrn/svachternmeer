@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: DEIN_GITHUB_USERNAME/DEIN_REPOSITORY_NAME # Z.B. my-org/sv-achternmeer
+  repo: timvnsgrn/svachternmeer # Z.B. my-org/sv-achternmeer
   branch: main # Oder dein Standard-Branch (z.B. master)
 
 media_folder: "assets/uploads" # Wo Bilder gespeichert werden
