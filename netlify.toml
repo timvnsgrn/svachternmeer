@@ -1,0 +1,8 @@
+[build]
+  publish = "."
+
+# Optional: Leite /admin sauber auf das Admin-Verzeichnis um.
+[[redirects]]
+  from = "/admin"
+  to = "/admin/"
+  status = 301

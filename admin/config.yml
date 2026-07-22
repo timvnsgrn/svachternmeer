@@ -1,7 +1,8 @@
 backend:
-  name: github
-  repo: timvnsgrn/svachternmeer # Z.B. my-org/sv-achternmeer
-  branch: main # Oder dein Standard-Branch (z.B. master)
+  name: git-gateway
+  branch: main # Oder dein deployter Netlify-Branch
+
+# Netlify Identity + Git Gateway wird in Netlify aktiviert.
 
 media_folder: "assets/uploads" # Wo Bilder gespeichert werden
 public_folder: "/assets/uploads" # Pfad zu den Bildern im HTML

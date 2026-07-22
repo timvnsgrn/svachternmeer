@@ -6,7 +6,22 @@
   <title>Content Manager – SV Achternmeer</title>
 </head>
 <body>
-  <!-- Decap CMS Dashboard Script -->
+  <noscript>Bitte aktiviere JavaScript, um den CMS-Editor zu nutzen.</noscript>
+
+  <!-- Netlify Identity + Decap CMS -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            window.location.reload();
+          });
+        }
+      });
+    }
+  </script>
 </body>
 </html>
