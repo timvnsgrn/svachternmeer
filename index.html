@@ -6,109 +6,9 @@
 <title>SV Achternmeer e.V. – Sportverein in Wardenburg</title>
 <meta name="description" content="SV Achternmeer e.V. – Fußball, Gymnastik, Jazzdance und Kindersport in Wardenburg. Werde jetzt Mitglied!">
 
-<!-- ==========================================================
-     PUBLII-HINWEIS: Dieses Dokument ist bewusst in klar
-     abgegrenzte, kommentierte <section>-Blöcke gegliedert.
-     Jeder Block kann 1:1 als Publii-"Post"/"Page"-Template
-     oder als statischer Textblock übernommen werden.
-     Bilder sind mit Platzhaltern (placehold.co) markiert –
-     bitte durch echte Vereinsfotos ersetzen (Alt-Texte bleiben).
-     ========================================================== -->
+<!-- Hauptseite des SV Achternmeer e.V. -->
 
-<!-- Google Fonts: Inter (Body + Headlines) -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-<!-- Tailwind CSS via CDN -->
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        fontFamily: {
-          sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        },
-        colors: {
-          'sva-blue': {
-            DEFAULT: '#1E3A8A',
-            50:  '#EEF2FB',
-            100: '#DCE5F6',
-            200: '#B4C6EA',
-            300: '#8CA7DE',
-            400: '#4A6BC4',
-            500: '#1E3A8A',
-            600: '#1A3277',
-            700: '#152864',
-            800: '#101E4B',
-            900: '#0B1533',
-          },
-          'sva-accent': '#2E5BFF',
-          'sva-ink': '#15171C',
-        },
-        boxShadow: {
-          'card': '0 1px 2px rgba(16,30,75,0.04), 0 8px 24px -8px rgba(16,30,75,0.10)',
-          'card-hover': '0 4px 8px rgba(16,30,75,0.06), 0 16px 32px -12px rgba(16,30,75,0.18)',
-        },
-      }
-    }
-  }
-</script>
-
-<style>
-  html { scroll-behavior: smooth; }
-  body { -webkit-font-smoothing: antialiased; }
-
-  /* Signatur-Element: diagonaler "Trikot-Cut" als Sektionstrenner,
-     angelehnt an die Schräge einer Vereins-Kapitänsbinde / Trikot-Einsatz */
-  .jersey-cut-bottom {
-    clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
-  }
-  .jersey-cut-top {
-    clip-path: polygon(0 12%, 100% 0, 100% 100%, 0 100%);
-  }
-  @media (max-width: 767px) {
-    .jersey-cut-bottom { clip-path: polygon(0 0, 100% 0, 100% 96%, 0 100%); }
-    .jersey-cut-top { clip-path: polygon(0 4%, 100% 0, 100% 100%, 0 100%); }
-  }
-
-  /* Scoreboard-Zähler im Hero */
-  .stat-divider:not(:last-child) {
-    border-right: 1px solid rgba(255,255,255,0.18);
-  }
-
-  /* Modal Basis */
-  .modal-overlay { background: rgba(11,21,51,0.72); backdrop-filter: blur(2px); }
-  .modal-panel { animation: modal-in .22s ease-out; }
-  @keyframes modal-in {
-    from { opacity: 0; transform: translateY(12px) scale(.98); }
-    to   { opacity: 1; transform: translateY(0) scale(1); }
-  }
-
-  /* Sichtbarer Fokus-Ring für Barrierefreiheit */
-  a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
-    outline: 2px solid #2E5BFF;
-    outline-offset: 3px;
-    border-radius: 4px;
-  }
-
-  /* Reduced motion respektieren */
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    .modal-panel { animation: none; }
-    * { transition-duration: 0.001ms !important; }
-  }
-
-  .nav-link { position: relative; }
-  .nav-link::after {
-    content: ""; position: absolute; left: 0; bottom: -4px; height: 2px; width: 0;
-    background: #2E5BFF; transition: width .2s ease;
-  }
-  .nav-link:hover::after, .nav-link:focus-visible::after { width: 100%; }
-
-  .card-lift { transition: transform .25s ease, box-shadow .25s ease; }
-  .card-lift:hover { transform: translateY(-4px); }
-</style>
+<link rel="stylesheet" href="./assets/tailwind.css">
 </head>
 
 <body class="bg-[#FAFAF9] text-sva-ink font-sans antialiased">
@@ -213,7 +113,7 @@
       <!-- Hero-Bild -->
       <div class="lg:col-span-5">
         <div class="relative rounded-2xl overflow-hidden shadow-card-hover ring-1 ring-white/10">
-          <img src="https://placehold.co/700x560/0B1533/FAFAF9?text=Vereinsfoto%0ASV+Achternmeer"
+          <img src="./assets/hero.jpg"
                alt="Mannschaftsfoto des SV Achternmeer e.V. auf dem Vereinsgelände"
                class="w-full h-full object-cover aspect-[5/4]" loading="eager">
         </div>
@@ -277,7 +177,7 @@
       <!-- Fußball -->
       <button data-modal="modal-fussball" class="dept-card group text-left bg-[#FAFAF9] border border-sva-blue-100 rounded-2xl overflow-hidden shadow-card card-lift hover:shadow-card-hover">
         <div class="relative aspect-[4/3] overflow-hidden">
-          <img src="https://placehold.co/500x400/1E3A8A/FAFAF9?text=Fu%C3%9Fball" alt="Fußballspieler des SV Achternmeer beim Training" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+          <img src="./assets/fussball.jpg" alt="Fußballspieler des SV Achternmeer beim Training" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
         </div>
         <div class="p-6">
           <h3 class="font-bold text-lg">Fußball</h3>
@@ -291,7 +191,7 @@
       <!-- Gymnastik -->
       <button data-modal="modal-gymnastik" class="dept-card group text-left bg-[#FAFAF9] border border-sva-blue-100 rounded-2xl overflow-hidden shadow-card card-lift hover:shadow-card-hover">
         <div class="relative aspect-[4/3] overflow-hidden">
-          <img src="https://placehold.co/500x400/1E3A8A/FAFAF9?text=Gymnastik" alt="Gymnastikgruppe des SV Achternmeer in der Halle" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+          <img src="./assets/gymnastik.jpg" alt="Gymnastikgruppe des SV Achternmeer in der Halle" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
         </div>
         <div class="p-6">
           <h3 class="font-bold text-lg">Gymnastik</h3>
@@ -305,7 +205,7 @@
       <!-- Jazzdance -->
       <button data-modal="modal-jazzdance" class="dept-card group text-left bg-[#FAFAF9] border border-sva-blue-100 rounded-2xl overflow-hidden shadow-card card-lift hover:shadow-card-hover">
         <div class="relative aspect-[4/3] overflow-hidden">
-          <img src="https://placehold.co/500x400/1E3A8A/FAFAF9?text=Jazzdance" alt="Jazzdance-Gruppe des SV Achternmeer bei einer Aufführung" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+          <img src="./assets/jazzdance.jpg" alt="Jazzdance-Gruppe des SV Achternmeer bei einer Aufführung" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
         </div>
         <div class="p-6">
           <h3 class="font-bold text-lg">Jazzdance</h3>
@@ -319,7 +219,7 @@
       <!-- Kindersport -->
       <button data-modal="modal-kindersport" class="dept-card group text-left bg-[#FAFAF9] border border-sva-blue-100 rounded-2xl overflow-hidden shadow-card card-lift hover:shadow-card-hover">
         <div class="relative aspect-[4/3] overflow-hidden">
-          <img src="https://placehold.co/500x400/1E3A8A/FAFAF9?text=Kindersport" alt="Kindersportgruppe des SV Achternmeer beim Toben in der Halle" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+          <img src="./assets/kindersport.jpg" alt="Kindersportgruppe des SV Achternmeer beim Toben in der Halle" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
         </div>
         <div class="p-6">
           <h3 class="font-bold text-lg">Kindersport</h3>
@@ -442,7 +342,7 @@
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
       <div class="group rounded-2xl overflow-hidden border border-sva-blue-100 shadow-card card-lift hover:shadow-card-hover">
         <div class="aspect-square overflow-hidden bg-sva-blue-50">
-          <img src="https://placehold.co/400x400/EEF2FB/1E3A8A?text=Trikot" alt="Vereinstrikot des SV Achternmeer" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+          <img src="./assets/trikot.jpg" alt="Vereinstrikot des SV Achternmeer" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
         </div>
         <div class="p-4">
           <p class="font-semibold text-sm">Heimtrikot 25/26</p>
@@ -451,7 +351,7 @@
       </div>
       <div class="group rounded-2xl overflow-hidden border border-sva-blue-100 shadow-card card-lift hover:shadow-card-hover">
         <div class="aspect-square overflow-hidden bg-sva-blue-50">
-          <img src="https://placehold.co/400x400/EEF2FB/1E3A8A?text=Hoodie" alt="Hoodie mit Vereinslogo des SV Achternmeer" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+          <img src="./assets/hoodie.jpg" alt="Hoodie mit Vereinslogo des SV Achternmeer" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
         </div>
         <div class="p-4">
           <p class="font-semibold text-sm">Vereins-Hoodie</p>
@@ -460,7 +360,7 @@
       </div>
       <div class="group rounded-2xl overflow-hidden border border-sva-blue-100 shadow-card card-lift hover:shadow-card-hover">
         <div class="aspect-square overflow-hidden bg-sva-blue-50">
-          <img src="https://placehold.co/400x400/EEF2FB/1E3A8A?text=Schal" alt="Fanschal des SV Achternmeer" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+          <img src="./assets/schal.jpg" alt="Fanschal des SV Achternmeer" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
         </div>
         <div class="p-4">
           <p class="font-semibold text-sm">Fanschal</p>
@@ -469,7 +369,7 @@
       </div>
       <div class="group rounded-2xl overflow-hidden border border-sva-blue-100 shadow-card card-lift hover:shadow-card-hover">
         <div class="aspect-square overflow-hidden bg-sva-blue-50">
-          <img src="https://placehold.co/400x400/EEF2FB/1E3A8A?text=Cap" alt="Cap mit Vereinslogo des SV Achternmeer" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+          <img src="./assets/cap.jpg" alt="Cap mit Vereinslogo des SV Achternmeer" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
         </div>
         <div class="p-4">
           <p class="font-semibold text-sm">Cap</p>
@@ -732,13 +632,7 @@
 </div>
 
 <script>
-/* ==========================================================
-   INHALT / DATEN
-   Publii-Hinweis: Diese Objekte enthalten alle dynamischen
-   Inhalte (News, Mannschaften, Abteilungen, Sponsoren).
-   Beim Redesign in Publii einfach durch echte Post-/Feld-
-   Daten ersetzen bzw. serverseitig ausgeben.
-   ========================================================== */
+/* Inhalte und Interaktivität der Startseite */
 
 const newsData = [
   {
