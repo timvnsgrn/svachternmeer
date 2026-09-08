@@ -1,9 +1,9 @@
 module.exports = {
-  content: ['./index.html'],
+  content: ['./*.html'],
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        sans: ['ui-sans-serif', 'system-ui', 'sans-serif'],
       },
       colors: {
         'sva-blue': {

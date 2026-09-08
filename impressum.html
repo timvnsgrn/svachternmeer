@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Impressum | SV Achternmeer e.V.</title>
+<meta name="description" content="Impressum des SV Achternmeer e.V.">
+<link rel="stylesheet" href="./assets/tailwind.css">
+</head>
+<body class="bg-[#FAFAF9] text-sva-ink font-sans antialiased">
+<a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[999] focus:bg-white focus:text-sva-blue focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-card">Zum Inhalt springen</a>
+<header class="bg-white border-b border-sva-blue-100">
+  <div class="max-w-5xl mx-auto px-5 sm:px-8 py-5 flex items-center justify-between gap-4">
+    <a href="./index.html" class="font-extrabold text-lg text-sva-ink">SV Achternmeer <span class="text-sva-blue">e.V.</span></a>
+    <a href="./index.html" class="text-sm font-semibold text-sva-blue hover:text-sva-blue-700">Zur Startseite</a>
+  </div>
+</header>
+<main id="main-content" class="max-w-5xl mx-auto px-5 sm:px-8 py-16 md:py-24">
+  <p class="text-xs font-bold tracking-[0.22em] uppercase text-sva-blue mb-3">Rechtliches</p>
+  <h1 class="font-black text-4xl md:text-5xl tracking-tight">Impressum</h1>
+  <div class="mt-10 max-w-3xl space-y-10 text-sva-ink/80 leading-relaxed">
+    <section>
+      <h2 class="font-bold text-xl text-sva-ink mb-3">Herausgeber</h2>
+      <address class="not-italic">
+        <strong class="text-sva-ink">Sportverein Achternmeer e.V.</strong><br>
+        Irisweg 17<br>
+        26203 Wardenburg
+      </address>
+    </section>
+    <section>
+      <h2 class="font-bold text-xl text-sva-ink mb-3">Vertretungsberechtigt</h2>
+      <p>1. Vorsitzender: Lennart Schipper</p>
+    </section>
+    <section>
+      <h2 class="font-bold text-xl text-sva-ink mb-3">Geschäftsstelle</h2>
+      <address class="not-italic">Auf dem Felde 6<br>26203 Wardenburg</address>
+    </section>
+    <section>
+      <h2 class="font-bold text-xl text-sva-ink mb-3">Kontakt</h2>
+      <p><a href="mailto:info@sv-achternmeer.de" class="text-sva-blue hover:text-sva-blue-700 underline underline-offset-2">info@sv-achternmeer.de</a></p>
+      <p><a href="tel:+494407123456" class="text-sva-blue hover:text-sva-blue-700 underline underline-offset-2">04407 123456</a></p>
+    </section>
+    <section>
+      <h2 class="font-bold text-xl text-sva-ink mb-3">Haftung für Inhalte</h2>
+      <p>Als Diensteanbieter sind wir nach den allgemeinen Gesetzen für eigene Inhalte auf diesen Seiten verantwortlich. Wir sind jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
+    </section>
+    <section>
+      <h2 class="font-bold text-xl text-sva-ink mb-3">Haftung für Links</h2>
+      <p>Diese Website enthält Links zu externen Websites Dritter. Auf deren Inhalte haben wir keinen Einfluss. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber verantwortlich.</p>
+    </section>
+    <section>
+      <h2 class="font-bold text-xl text-sva-ink mb-3">Urheberrecht</h2>
+      <p>Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Eine Vervielfältigung, Bearbeitung oder Verbreitung außerhalb der Grenzen des Urheberrechts bedarf der vorherigen Zustimmung des jeweiligen Rechteinhabers.</p>
+    </section>
+  </div>
+</main>
+<footer class="bg-sva-blue-800 text-sva-blue-100">
+  <div class="max-w-5xl mx-auto px-5 sm:px-8 py-8 flex flex-col sm:flex-row justify-between gap-3 text-sm">
+    <span>© Sportverein Achternmeer e.V.</span>
+    <span class="flex gap-4"><a href="./impressum.html" class="text-white">Impressum</a><a href="./datenschutz.html" class="hover:text-white">Datenschutz</a></span>
+  </div>
+</footer>
+<div id="cookieBanner" class="cookie-banner fixed inset-x-4 bottom-4 z-[200] hidden" role="region" aria-label="Hinweis zu notwendigen Cookies">
+  <div class="max-w-3xl mx-auto rounded-2xl bg-white border border-sva-blue-100 shadow-card-hover p-5 sm:p-6">
+    <h2 class="font-bold text-lg">Datenschutz-Hinweis</h2>
+    <p class="mt-2 text-sm text-sva-ink/70 leading-relaxed">Diese Website verwendet keine Analyse- oder Marketing-Cookies. Für die Funktion des Hinweises wird lediglich eine lokale Einstellung in deinem Browser gespeichert. <a href="./datenschutz.html" class="text-sva-blue font-semibold underline underline-offset-2">Mehr zum Datenschutz</a></p>
+    <button id="cookieAccept" type="button" class="mt-4 inline-flex items-center justify-center rounded-lg bg-sva-blue px-5 py-3 text-sm font-semibold text-white hover:bg-sva-blue-700">Verstanden</button>
+  </div>
+</div>
+<script>
+  const cookieBanner = document.getElementById('cookieBanner');
+  if (localStorage.getItem('sva-cookie-hinweis') !== 'verstanden') cookieBanner.classList.remove('hidden');
+  document.getElementById('cookieAccept').addEventListener('click', () => {
+    localStorage.setItem('sva-cookie-hinweis', 'verstanden');
+    cookieBanner.classList.add('hidden');
+  });
+</script>
+</body>
+</html>
