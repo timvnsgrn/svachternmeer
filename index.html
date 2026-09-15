@@ -650,28 +650,28 @@ const newsData = [
   },
   {
     id: "n2",
-    title: "Leer",
-    date: "01. Oktober 2026",
-    category: "Mitteilung",
-    image: "./assets/news-mitteilung.svg",
-    excerpt: "Hier Text einfügen",
+    title: "POKALSIEGER 2025/26",
+    date: "13. Mai 2026",
+    category: "Historisches Ereignis",
+    image: "./assets/pokalsieg2026.jpg",
+    excerpt: "Der erste Titel in der Vereinsgeschichte des SV Achternmeer wurde eingefahren.",
     body: [
-      "Zeile 1",
-      "Zeile 2",
-      "Zeile 3"
+      "Unsere erste Herren sichert sich den Krombacher Kreispokal im Finale gegen den TuS Heidkrug, mit einem eindrucksvollen 6:0.",
+      "Wir sind einfach nur sprachlos, stolz, glücklich etc., Aber vor allem sind wir eines. Extrem dankbar für euren Support und die großartige Unterstützung, die ihr unseren Männern gegeben habt.",
+      "Wir haben Achternmeer gemeinsam wieder auf die Karte gebracht, das war ganz großes Kino!💙"
     ]
   },
   {
     id: "n3",
-    title: "Leer",
-    date: "01. Oktober 2026",
+    title: "Generationswechsel beim SV Achternmeer: Lennart Schipper übernimmt das Ruder",
+    date: "25. März 2026",
     category: "Mitteilung",
-    image: "./assets/news-mitteilung.svg",
-    excerpt: "Hier Text einfügen",
+    image: "./assets/vorstand-2026.jpg",
+    excerpt: "Seit dem 25.03.2026 ist der neue Vorstand, rund um den neuen ersten Vorsitzenden Lennart Schipper nun im Amt.",
     body: [
-      "Zeile 1",
-      "Zeile 2",
-      "Zeile 3"
+      "Neu im Vorstand von links: Franziska Wiese als Kassenwartin, Lennart Schipper als 1. Vorsitzender,",
+      "Mario Ranke als 2. Vorsitzender und Jennifer Zemke, die ihr Amt als Schriftführerin behält.",
+      "Nach langjähriger Arbeit traten Otto Müller (1. Vorsitzender), Dennis Müller (2. Vorsitzender) und Detlef Müller nicht erneut zur Wahl an. Als Anerkennung für ihre geleistete Arbeit wurden ihnen zum Abschied Präsente überreicht, wobei die ehrenamtlichen Tätigkeiten aller drei glücklicherweise noch nicht vollständig beendet sind. So bleibt Otto als Platzwart erhalten, Dennis agiert weiterhin als Ansprechpartner in vielen Fragen rund um den SVA und Detlef hilft unterstützend bei der Einarbeitung der neuen Kassenwartin. Vielen Dank dafür!"
     ]
   },
   {
@@ -769,7 +769,7 @@ newsData.forEach(item => {
   card.dataset.newsId = item.id;
   card.innerHTML = `
     <div class="aspect-video overflow-hidden">
-      <img src="${item.image}" alt="" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+      <img src="${item.image}" alt="" class="w-full ${item.id === 'n2' ? 'aspect-video' : 'h-full'} object-cover block transition-transform duration-300 group-hover:scale-105">
     </div>
     <div class="p-6">
       <p class="text-xs font-bold text-sva-blue uppercase tracking-wide">${item.category} · ${item.date}</p>
