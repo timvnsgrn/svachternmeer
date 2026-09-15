@@ -769,7 +769,7 @@ newsData.forEach(item => {
   card.dataset.newsId = item.id;
   card.innerHTML = `
     <div class="aspect-video overflow-hidden">
-      <img src="${item.image}" alt="" class="w-full h-full object-cover object-top block transition-transform duration-300 group-hover:scale-105">
+      <img src="${item.image}" alt="" class="w-full h-full object-cover block transition-transform duration-300 group-hover:scale-105">
     </div>
     <div class="p-6">
       <p class="text-xs font-bold text-sva-blue uppercase tracking-wide">${item.category} · ${item.date}</p>
@@ -779,6 +779,18 @@ newsData.forEach(item => {
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </span>
     </div>`;
+  const image = card.querySelector('img');
+  if (item.id === 'n1') {
+    image.style.objectPosition = '50% 0%';
+    image.style.transform = 'scale(1.08)';
+  } else if (item.id === 'n2') {
+    image.style.objectPosition = '50% 0%';
+    image.style.transform = 'scale(1.06)';
+  } else {
+    image.style.objectPosition = '50% 0%';
+    image.style.transform = 'scale(1.02)';
+  }
+
   card.addEventListener('click', () => openNewsModal(item.id));
   newsGrid.appendChild(card);
 });
