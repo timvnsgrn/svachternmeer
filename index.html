@@ -640,7 +640,7 @@ const newsData = [
     title: "Neue Webseite für den SVA",
     date: "01. Oktober 2026",
     category: "Organisatorisches",
-    image: "./assets/news-spielbericht.svg",
+    image: "./assets/bild-fußball.jpg",
     excerpt: "Aufrund der hohen Nachfrage nach einer modernen und übersichtlichen Webseite, wurde diese nun neu aufgesetzt.",
     body: [
       "Damit die Webseite als Informationsplattform für Mitglieder, Fans und Externe aktuell bleibt, wird um Mithilfe gebeten.",
@@ -768,8 +768,8 @@ newsData.forEach(item => {
   card.className = "news-card group text-left bg-white border border-sva-blue-100 rounded-2xl overflow-hidden shadow-card card-lift hover:shadow-card-hover";
   card.dataset.newsId = item.id;
   card.innerHTML = `
-    <div class="aspect-video overflow-hidden">
-      <img src="${item.image}" alt="" class="w-full ${item.id === 'n2' ? 'aspect-video' : 'h-full'} object-cover block transition-transform duration-300 group-hover:scale-105">
+    <div class="relative aspect-video overflow-hidden">
+      <img src="${item.image}" alt="" class="absolute inset-0 w-full h-full object-cover block transition-transform duration-300 group-hover:scale-105">
     </div>
     <div class="p-6">
       <p class="text-xs font-bold text-sva-blue uppercase tracking-wide">${item.category} · ${item.date}</p>
