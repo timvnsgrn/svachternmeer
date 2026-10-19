@@ -246,24 +246,7 @@
           Abteilungen jederzeit willkommen.
         </p>
 
-        <div class="mt-8 rounded-2xl border border-sva-blue-100 overflow-hidden">
-          <table class="w-full text-sm">
-            <caption class="sr-only">Übersicht der Mitgliedsbeiträge</caption>
-            <thead>
-              <tr class="bg-sva-blue text-white text-left">
-                <th scope="col" class="py-3 px-5 font-semibold">Beitragsart</th>
-                <th scope="col" class="py-3 px-5 font-semibold text-right">pro Monat</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-sva-blue-100">
-              <tr><td class="py-3 px-5">Kinder &amp; Jugendliche (bis 17 J.)</td><td class="py-3 px-5 text-right font-semibold">6,00 €</td></tr>
-              <tr class="bg-[#FAFAF9]"><td class="py-3 px-5">Erwachsene</td><td class="py-3 px-5 text-right font-semibold">9,00 €</td></tr>
-              <tr><td class="py-3 px-5">Familie</td><td class="py-3 px-5 text-right font-semibold">18,00 €</td></tr>
-              <tr class="bg-[#FAFAF9]"><td class="py-3 px-5">Passive Mitgliedschaft</td><td class="py-3 px-5 text-right font-semibold">4,00 €</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="text-xs text-sva-ink/50 mt-3">Genaue Konditionen entnimmst du bitte der aktuellen Beitragsordnung.</p>
+        <p class="text-xs text-sva-ink/50 mt-3">Unsere Konditionen kannst du der aktuellen Beitragsordnung entnehmen.</p>
       </div>
 
       <div class="lg:col-span-7">
@@ -290,7 +273,7 @@
             </span>
           </a>
 
-          <a href="Beitragsordnung-SVA-Stand30-03-2026.pdf" class="doc-card group flex items-start gap-4 p-5 rounded-xl border border-sva-blue-100 bg-white shadow-card card-lift hover:shadow-card-hover">
+          <a href="Beitragsordnung-SVA-Stand01-05-25.pdf" class="doc-card group flex items-start gap-4 p-5 rounded-xl border border-sva-blue-100 bg-white shadow-card card-lift hover:shadow-card-hover">
             <span class="shrink-0 w-11 h-11 rounded-lg bg-sva-blue-50 text-sva-blue flex items-center justify-center">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
             </span>
@@ -752,6 +735,7 @@ const departmentsData = {
 
 const sponsorCount = 26;
 const sponsorImages = Array.from({ length: sponsorCount }, (_, i) => `./assets/sponsors/sponsor${i + 1}.png`);
+[sponsorImages[0], sponsorImages[6]] = [sponsorImages[6], sponsorImages[0]];
 
 /* ==========================================================
    RENDERING
@@ -779,18 +763,6 @@ newsData.forEach(item => {
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </span>
     </div>`;
-  const image = card.querySelector('img');
-  if (item.id === 'n1') {
-    image.style.objectPosition = '50% 0%';
-    image.style.transform = 'scale(1.08)';
-  } else if (item.id === 'n2') {
-    image.style.objectPosition = '50% 0%';
-    image.style.transform = 'scale(1.06)';
-  } else {
-    image.style.objectPosition = '50% 0%';
-    image.style.transform = 'scale(1.02)';
-  }
-
   card.addEventListener('click', () => openNewsModal(item.id));
   newsGrid.appendChild(card);
 });
